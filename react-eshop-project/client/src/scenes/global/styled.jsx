@@ -1,13 +1,15 @@
 import { styled, Box } from "@mui/material";
 import { shades } from "../../theme";
 
+
+// NAVBAR
+
 export const NavbarLayoutStyle = styled(Box)({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    height: '100px',
-    backgroundColor: '#ffffff',
-    opacity: '0.9',
+    height: '60px',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     position: 'fixed',
     top: '0',
     left: '0',
@@ -37,11 +39,63 @@ export const IconBox = styled(Box)({
     justifyContent: 'space-between',
     gap: '1rem',
     zIndex: '2',
-    color: '#080707'
 })
 
 // Styles to pass in sx
 
 export const iconColor = {
     color: 'black'
+}
+
+export const badgeStyle = {
+    "& .MuiBadge-badge": {
+        right: 5,
+        top: 5,
+        padding: "0 4px",
+        height: "14px",
+        minWidth: "10px",
+      },
+}
+
+// CART
+
+export const FlexBox = styled(Box)({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+})
+
+export const Overlay = styled(Box)({
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    position: "fixed",
+    zIndex: "10",
+    width: "100%",
+    height: "100%",
+    overflow: "auto"
+})
+
+export const Modal = styled(Box)({
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    width: "max(400px, 30%)",
+    height: "100%",
+    backgroundColor: "white",
+})
+
+export const ModalContent = styled(Box)({
+    padding: "30px",
+    overflow: "auto",
+    height: "100%",
+})
+
+// Styles to pass in sx
+
+export const buttonStyle = {
+    backgroundColor: shades.primary[400],
+    color: "white",
+    borderRadius: 0,
+    minWidth: "100%",
+    padding: "20px 40px",
+    margin: "20px 0",
 }

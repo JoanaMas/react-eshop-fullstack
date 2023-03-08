@@ -1,18 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Badge, Box, IconButton } from '@mui/material';
+import { Badge, IconButton } from '@mui/material';
 import * as styled from './styled';
 import { MenuOutlined, PersonOutline, SearchOutlined, ShoppingBagOutlined } from '@mui/icons-material';
-
-// import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-// import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
 import { useNavigate } from 'react-router-dom';
-import { shades } from '../../theme';
+import { setIsCartOpen } from '../../state'
+
+
 
 const Navbar = () => {
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart.cart)
+
 
   return (
     <styled.NavbarLayoutStyle>
@@ -26,15 +26,30 @@ const Navbar = () => {
 
         {/* Icons */}
         <styled.IconBox>
+          
             <IconButton sx={styled.iconColor}>
               <SearchOutlined/>
             </IconButton>
+
+  
             <IconButton sx={styled.iconColor}>
               <PersonOutline />
             </IconButton>
-            <IconButton sx={styled.iconColor}>
+
+            <Badge
+              badgeContent={cart.length}
+              color='secondary'
+              invisible={cart.length === 0}
+              sx={styled.badgeStyle}
+            >
+            <IconButton 
+            onClick={() => dispatch(setIsCartOpen({}))}
+            sx={styled.iconColor}
+            >
               <ShoppingBagOutlined />
             </IconButton>
+            </Badge>
+
             <IconButton sx={styled.iconColor}>
               <MenuOutlined />
             </IconButton>
